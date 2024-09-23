@@ -22,8 +22,8 @@ public class JournalEntryServices {
         return journalEntryRepository.findById(id);
     }
 
-    public JournalEntry createJournal(JournalEntry journalEntry){
-        return journalEntryRepository.save(journalEntry);
+    public void createJournal(JournalEntry journalEntry){
+        journalEntryRepository.save(journalEntry);
     }
 
     public void updateJournal(JournalEntry journalEntry){
