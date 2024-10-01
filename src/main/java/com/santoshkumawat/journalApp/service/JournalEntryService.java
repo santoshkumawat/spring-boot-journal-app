@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class JournalEntryServices {
+public class JournalEntryService {
     @Autowired
     private JournalEntryRepository journalEntryRepository;
 
@@ -22,11 +22,7 @@ public class JournalEntryServices {
         return journalEntryRepository.findById(id);
     }
 
-    public void createJournal(JournalEntry journalEntry){
-        journalEntryRepository.save(journalEntry);
-    }
-
-    public void updateJournal(JournalEntry journalEntry){
+    public void saveJournal(JournalEntry journalEntry){
         journalEntryRepository.save(journalEntry);
     }
 
