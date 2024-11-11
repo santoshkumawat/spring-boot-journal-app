@@ -1,4 +1,4 @@
-package com.santoshkumawat.journalApp.service;
+package com.santoshkumawat.journalApp.security;
 
 import com.santoshkumawat.journalApp.entity.User;
 import com.santoshkumawat.journalApp.repository.UserRepository;
@@ -19,12 +19,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userRepository.findByUserName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username not found: " + username));
         if(user != null) {
-            UserDetails userDetails = org.springframework.security.core.userdetails.User.withUsername(user.getUserName())
+            UserDetails userDetails = org.springframework.security.core.userdetails.User
+                    .builder()
+                    .username(user.getUserName())
                     .password(user.getPassword())
                     .roles(user.getRoles().toArray(new String[0]))
                     .build();
             return userDetails;
         }
-        return null;
+        throw new UsernameNotFoundException("User not found with username: " + username);
     }
 }
