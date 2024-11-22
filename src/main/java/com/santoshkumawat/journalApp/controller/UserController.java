@@ -25,7 +25,7 @@ public class UserController {
             if (userOptional.isPresent()) {
                 userOptional.get().setUserName(user.getUserName().isBlank() ? userOptional.get().getUserName() : user.getUserName());
                 userOptional.get().setPassword(user.getPassword());
-                userService.saveUser(userOptional.get());
+                userService.saveNewUser(userOptional.get());
                 return new ResponseEntity<>(userOptional.get(), HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
