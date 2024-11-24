@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public Optional<User> findByUserName(String userName){
-        return userRepository.findByUserName(userName);
+        return Optional.ofNullable(userRepository.findByUserName(userName));
     }
 
     public void saveNewUser(User user){

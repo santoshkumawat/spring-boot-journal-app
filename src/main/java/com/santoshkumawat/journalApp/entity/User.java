@@ -1,5 +1,6 @@
 package com.santoshkumawat.journalApp.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 import org.bson.types.ObjectId;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Data
 @Document(collection = "user")
+@Builder
 public class User {
 
     @Id
