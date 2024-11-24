@@ -13,23 +13,23 @@
 <!--        </encoder>-->
 <!--    </appender>-->
 
-    <appender name="myFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>journalApp.log</file>
+<!--    <appender name="myFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>journalApp.log</file>-->
 
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>journalApp-%d{yy-MM-dd_HH-mm}.%i.log</fileNamePattern>
-            <maxHistory>10</maxHistory>
-            <maxFileSize>10MB</maxFileSize>
-<!--            <totalSizeCap>3GB</totalSizeCap>-->
-        </rollingPolicy>
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>journalApp-%d{yy-MM-dd_HH-mm}.%i.log</fileNamePattern>-->
+<!--            <maxHistory>10</maxHistory>-->
+<!--            <maxFileSize>10MB</maxFileSize>-->
+<!--&lt;!&ndash;            <totalSizeCap>3GB</totalSizeCap>&ndash;&gt;-->
+<!--        </rollingPolicy>-->
 
-        <encoder>
-            <pattern>%d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</pattern>
-        </encoder>
-    </appender>
+<!--        <encoder>-->
+<!--            <pattern>%d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
-    <root level="info">
+    <root level="INFO">
         <appender-ref ref="myConsoleAppender" />
-        <appender-ref ref="myFileAppender" />
+<!--        <appender-ref ref="myFileAppender" />-->
     </root>
 </configuration>

@@ -7,13 +7,13 @@
 #    context-path: /journal
 
 # Stop logger for particular class
-logging:
-  level:
-    com:
-      santoshkumawat:
-        journalApp:
-          service:
-            UserService: Info
+#logging:
+#  level:
+#    com:
+#      santoshkumawat:
+#        journalApp:
+#          service:
+#            UserService: OFF
 
 #Stop logger for whole application
 #logging:
