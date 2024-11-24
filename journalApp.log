@@ -1,0 +1,1 @@
+24-11-25 02:51:02.123 [http-nio-8080-exec-6] ERROR c.s.journalApp.service.UserService - something went wrong: User already exist 

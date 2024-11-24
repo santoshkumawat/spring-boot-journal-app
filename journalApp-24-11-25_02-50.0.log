@@ -1,0 +1,6 @@
+24-11-25 02:50:20.859 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+24-11-25 02:50:20.867 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+24-11-25 02:50:20.869 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms 
+24-11-25 02:50:21.319 [http-nio-8080-exec-3] ERROR c.s.journalApp.service.UserService - something went wrong: User already exist 
+24-11-25 02:50:48.705 [http-nio-8080-exec-1] ERROR c.s.journalApp.service.UserService - something went wrong: User already exist 
+24-11-25 02:50:58.364 [http-nio-8080-exec-5] ERROR c.s.journalApp.service.UserService - something went wrong: User already exist 

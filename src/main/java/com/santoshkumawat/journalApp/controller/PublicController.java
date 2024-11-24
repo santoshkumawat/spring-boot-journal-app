@@ -18,10 +18,13 @@ public class PublicController {
     private UserService userService;
 
     @PostMapping("/createUser")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<?> createUser(@RequestBody User user) {
         try {
-            userService.saveNewUser(user);
-            return new ResponseEntity<>(user, HttpStatus.CREATED);
+            Boolean created = userService.saveNewUser(user);
+            if(created)
+                return new ResponseEntity<>(user, HttpStatus.CREATED);
+            else
+                return new ResponseEntity<>("User already exist", HttpStatus.CONFLICT);
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

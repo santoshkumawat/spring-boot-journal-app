@@ -5,3 +5,17 @@
 #server:
 #  servlet:
 #    context-path: /journal
+
+# Stop logger for particular class
+logging:
+  level:
+    com:
+      santoshkumawat:
+        journalApp:
+          service:
+            UserService: Info
+
+#Stop logger for whole application
+#logging:
+#  level:
+#    root: OFF
