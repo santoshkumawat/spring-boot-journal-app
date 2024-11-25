@@ -1,7 +1,9 @@
 package com.santoshkumawat.journalApp.controller;
 
+import com.santoshkumawat.journalApp.api.response.WeatherResponse;
 import com.santoshkumawat.journalApp.entity.User;
 import com.santoshkumawat.journalApp.service.UserService;
+import com.santoshkumawat.journalApp.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private WeatherService weatherService;
 
     @PutMapping
     public ResponseEntity<User> updateUser(@RequestBody User user){
@@ -35,11 +40,25 @@ public class UserController {
     }
 
     @DeleteMapping
-    private ResponseEntity<?> deleteUser() {
+    public ResponseEntity<?> deleteUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         userService.deleteByUserName(userName);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping()
+    public ResponseEntity<?> greeting() {
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            WeatherResponse weather = weatherService.getWeather("New Delhi");
+            String greetingMessage = "";
+            if(weather != null) {
+                greetingMessage = ", Weather feels like " + weather.getCurrent().getFeelslike();
+            }
+            return new ResponseEntity<>("Hi " + authentication.getName() + greetingMessage, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>("Something went wrong: ", HttpStatus.BAD_REQUEST);
+        }
+    }
 }
