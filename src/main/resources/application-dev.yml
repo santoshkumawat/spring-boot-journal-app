@@ -13,3 +13,5 @@ server:
 weather:
   api:
     key: "{YOUR_API_KEY}"
+
+debug: false
