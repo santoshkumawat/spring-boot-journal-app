@@ -1,9 +1,20 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://santoshkumawatdev:hpy38NIXefq2C2nf@cluster0.bs3ad.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      database: journaldb
+      uri: ${MONGODB_URL}
+      database: ${MONGODB_DATABASE}
       auto-index-creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   main:
     allow-circular-references: true
 
